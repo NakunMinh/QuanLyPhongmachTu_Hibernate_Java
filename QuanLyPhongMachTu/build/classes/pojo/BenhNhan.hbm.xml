@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 16, 2016 4:39:02 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.BenhNhan" table="BenhNhan" schema="dbo" catalog="QLBenhVien" optimistic-lock="version">
+        <id name="hoten" type="string">
+            <column name="Hoten" />
+            <generator class="assigned" />
+        </id>
+        <property name="gioitinh" type="string">
+            <column name="Gioitinh" />
+        </property>
+        <property name="namsinh" type="string">
+            <column name="Namsinh" />
+        </property>
+        <property name="diachi" type="string">
+            <column name="Diachi" />
+        </property>
+        <property name="ngaykham" type="date">
+            <column name="Ngaykham" />
+        </property>
+        <set name="phieuKhamBenhs" table="PhieuKhamBenh" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Hoten" />
+            </key>
+            <one-to-many class="pojo.PhieuKhamBenh" />
+        </set>
+    </class>
+</hibernate-mapping>
